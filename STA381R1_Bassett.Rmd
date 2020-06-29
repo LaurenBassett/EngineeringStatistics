@@ -1,0 +1,67 @@
+---
+title: "STA381R1_Bassett"
+author: "Lauren Bassett"
+date: "6/28/2020"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=FALSE}
+require(mosaic)
+require(rmarkdown)
+require(knitr)
+require(Lock5withR)
+```
+
+```{r}
+?head
+
+head(HELPrct)
+``` 
+head() returns the first and last parts of a vector, matrix, table, data frame, or function. X is the object in question, so the 'head(HELPrct)' function is returning the matrix HELPrct. 
+
+```{r}
+favstats(~age, data=HELPrct)
+```
+favstats() is showing us the min, max, quartiles 1 and 3, median, mean, standard deviation, number of values n, and any missing data in the dataset HELPrct.
+
+```{r}
+histogram(~age, data=HELPrct)
+```
+Center: The center of the data appears to be between 30 and 40. 
+Spread: The spread is from about 10 to about 60. 
+Shape:The data appears to have a slight right skew. 
+Outliers: The data has an outlier at about 60. 
+
+```{r}
+tally(~substance, data=HELPrct)
+tally(~substance,data=HELPrct, 
+      format='percent')
+```
+
+The tally() function shows the number of entries in each category. When specifying percent, it shows what percentage of the data is within each category. 
+
+```{r}
+?xyplot
+xyplot(d1~age, data=HELPrct)
+```
+
+Linear Pattern: Does not appear to be linear.
+Spread: Dots are close together with a few outliers.
+Postive/Negative:  Dots are plotted in a mostly horizontal pattern, slighly positive correlation.
+
+```{r}
+?bwplot
+bwplot(age~substance, data=HELPrct)
+```
+
+Alcohol: The data for alcohol seems normal. Each quartile appears to be about the same size, there are no outliers, and the mean is roughly in the center. 
+
+Cocaine: Cocaine has a much shorter spread than alcohol with a few outliers. The mean age is lower, and the spread is much smaller. 
+
+Heroin: There are no outliers for heroin, but the data appears to be skwered. The mean age is lower than both alcohol and cocaine, but the upper range of ages is higher than cocaine. 
